@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
+use App\Models\Brand;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -13,7 +18,9 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
-        dd('index');
+        $products = Product::all();
+
+        return response(view('index', ['products' => $products]));
     }
 
     /**
@@ -21,15 +28,25 @@ class ProductController extends Controller
      */
     public function create(): Response
     {
-        dd('create');
+        $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        $categories = Category::orderBy('name', 'asc')->get()->pluck('name', 'id');
+
+        return response(view('create', ['brands' => $brands, 'categories' => $categories]));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreProductRequest $request): RedirectResponse
     {
-        dd('store');
+        {
+            $params = $request->validated();
+            if ($product = Product::create($params)) {
+                $product->categories()->sync($params['category_ids']);
+
+                return redirect(route('products.index'))->with('success', 'Added!');
+            }
+        }
     }
 
     /**
@@ -45,22 +62,41 @@ class ProductController extends Controller
      */
     public function edit(string $id): Response
     {
-        dd('edit');
+        $product = Product::findOrFail($id);
+        $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        $categories = Category::orderBy('name', 'asc')->get()->pluck('name', 'id');
+
+
+        return response(view('edit', ['product' => $product, 'brands' => $brands, 'categories' => $categories]));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(UpdateProductRequest $request, string $id): RedirectResponse
     {
-        dd('update');
+        $product = Product::findOrFail($id);
+        $params = $request->validated();
+
+        if ($product->update($params)) {
+            $product->categories()->sync($params['category_ids']);
+
+            return redirect(route('products.index'))->with('success', 'Updated!');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+ public function destroy(string $id): RedirectResponse
     {
-        dd('store');
+        $product = Product::findOrFail($id);
+        $product->categories()->detach();
+
+        if ($product->delete()) {
+            return redirect(route('products.index'))->with('success', 'Deleted!');
+        }
+
+        return redirect(route('products.index'))->with('error', 'Sorry, unable to delete this!');
     }
 }
