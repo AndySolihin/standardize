@@ -39,18 +39,18 @@
                       <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
                     <div class="mb-3">
-                      <label class="form-label">SKU</label>
-                      <input type="text" class="form-control" name="sku" value="{{ old('sku', $product->sku) }}" placeholder="#SKU">
+                      <label class="form-label">NOMOR SO</label>
+                      <input type="text" class="form-control" name="nomor_so" value="{{ old('nomor_so', $product->nomor_so) }}" placeholder="masukan nomor so">
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control" name="name" value="{{ old('name', $product->name) }}"  placeholder="Name">
+                      <label class="form-label">Kategori</label>
+                      <input type="text" class="form-control" name="kategori" value="{{ old('kategori', $product->kategori) }}"  placeholder="masukan kategori">
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Price</label>
-                      <input type="text" class="form-control" name="price" value="{{ old('price', $product->price) }}"  placeholder="Price">
+                      <label class="form-label">Total Hours</label>
+                      <input type="text" class="form-control" name="total_hours" value="{{ old('total_hours', $product->total_hours) }}"  placeholder="Price">
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                       <label class="form-label">Brand</label>
                       <select name="brand_id" class="form-control">
                         <option value="">-- Brand --</option>
@@ -60,8 +60,8 @@
                           </option>
                         @endforeach
                       </select>
-                    </div>
-                    <div class="mb-3">
+                    </div> --}}
+                    {{-- <div class="mb-3">
                       <label class="form-label">Category</label>
                       @php
                         $selectedCategoryIDs = $product->categories->pluck('id')->toArray();
@@ -74,11 +74,11 @@
                           </label>
                         </div>
                       @endforeach
-                    </div>
-                    <div class="mb-3">
+                    </div> --}}
+                    {{-- <div class="mb-3">
                       <label class="form-label">Stock</label>
                       <input type="text" class="form-control" name="stock" value="{{ old('stock', $product->stock) }}"  placeholder="Stock">
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="card-footer">
                   <button class="btn btn-primary" type="submit">Update</button>

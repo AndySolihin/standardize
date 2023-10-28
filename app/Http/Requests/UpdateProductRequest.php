@@ -23,16 +23,16 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sku' => [
+            'nomor_so' => [
                 'required',
                 'max:100',
-                Rule::unique('products')->ignore($this->id),
+                Rule::unique('dryresins')->ignore($this->id),
             ],
-            'name' => ['required', 'max:100'],
-            'price' => ['required', 'numeric', 'min:1'],
-            'stock' => ['required', 'numeric', 'min:0'],
-			'brand_id' => ['required'],
-            'category_ids' => ['required', 'array', 'min:2']
+            'kategori' => ['required', 'max:100'],
+            'total_hours' => ['required', 'numeric', 'min:1'],
+			// 'proses_id' => ['required'],
+            // 'stock' => ['required', 'numeric', 'min:0'],
+            // 'category_ids' => ['required', 'array', 'min:2']
         ];
     }
 }

@@ -29,26 +29,24 @@
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>SKU</th>
-                      <th>Name</th>
-                      <th>Brand</th>
-                      <th>Categories</th>
-                      <th>Price</th>
-                      <th>Stock</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>SO Code</th>
+                        <th>Hours</th>
+                        <th>Capacity</th>
+                        <th>Man Hour Code</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     @forelse ($products as $product)
                       <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->sku }}</td>
-                        <td>{{ $product->name }}</td>
-                        <td>{{ ($product->brand != null) ? $product->brand->name : '' }}</td>
-                        <td>{{ implode(', ', $product->categories->pluck('name')->toArray()) }}</td>
-                        <td>{{ $product->price }}</td>
-                        <td>{{ $product->stock }}</td>
+                        <td>{{ $product->dryresin->id }}</td>
+                        <td>{{ $product->dryresin->kategori }}</td>
+                        <td>{{ $product->dryresin->nomor_so }}</td>
+                        {{-- <td>{{ ($product->brand != null) ? $product->brand->name : '' }}</td> --}}
+                        {{-- <td>{{ implode(', ', $product->categories->pluck('name')->toArray()) }}</td> --}}
+                        <td>{{ $product->dryresin->total_hours }}</td>
                         <td>
                           <a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-secondary btn-sm">edit</a>
                           <a href="#" class="btn btn-sm btn-danger" onclick="

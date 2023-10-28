@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
-use App\Models\Product;
-use App\Models\Category;
+use App\Models\Dryresin;
+use App\Models\TypeProses;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Proses;
+use App\Models\Standardize;
 
 class ProductController extends Controller
 {
@@ -18,7 +20,7 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
-        $products = Product::all();
+        $products = Standardize::all();
 
         return response(view('index', ['products' => $products]));
     }
@@ -28,10 +30,12 @@ class ProductController extends Controller
      */
     public function create(): Response
     {
-        $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
-        $categories = Category::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        // $proses = Proses::orderBy('id')->get()->pluck( 'id');
+        // $proses = Proses::orderBy('nama', 'asc')->get()->pluck('nama', 'id');
+        // $categories = TypeProses::orderBy('name', 'asc')->get()->pluck('name', 'id');
 
-        return response(view('create', ['brands' => $brands, 'categories' => $categories]));
+        return response(view('create', [ ]));
+        // return response(view('create', ['proses' => $brands, 'categories' => $categories]));
     }
 
     /**
@@ -39,15 +43,13 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request): RedirectResponse
     {
-        {
-            $params = $request->validated();
-            if ($product = Product::create($params)) {
-                $product->categories()->sync($params['category_ids']);
+        $params = $request->validated();
 
-                return redirect(route('products.index'))->with('success', 'Added!');
-            }
-        }
+        Dryresin::create($params);
+
+        return redirect(route('products.index'))->with('success', 'Added!');
     }
+
 
     /**
      * Display the specified resource.
@@ -62,12 +64,13 @@ class ProductController extends Controller
      */
     public function edit(string $id): Response
     {
-        $product = Product::findOrFail($id);
-        $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
-        $categories = Category::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        $product = Dryresin::findOrFail($id);
+        // $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        // $categories = TypeProses::orderBy('name', 'asc')->get()->pluck('name', 'id');
 
 
-        return response(view('edit', ['product' => $product, 'brands' => $brands, 'categories' => $categories]));
+        return response(view('edit', ['product' => $product]));
+        // return response(view('edit', ['product' => $product, 'brands' => $brands, 'categories' => $categories]));
     }
 
     /**
@@ -75,11 +78,11 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, string $id): RedirectResponse
     {
-        $product = Product::findOrFail($id);
+        $product = Dryresin::findOrFail($id);
         $params = $request->validated();
 
         if ($product->update($params)) {
-            $product->categories()->sync($params['category_ids']);
+            // $product->categories()->sync($params['category_ids']);
 
             return redirect(route('products.index'))->with('success', 'Updated!');
         }
@@ -88,12 +91,32 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
- public function destroy(string $id): RedirectResponse
-    {
-        $product = Product::findOrFail($id);
-        $product->categories()->detach();
+    // public function destroy(string $id): RedirectResponse
+    // {
+    //     $product = Dryresin::findOrFail($id);
+    //     $product->categories()->detach();
 
-        if ($product->delete()) {
+    //     if ($product->delete()) {
+    //         return redirect(route('products.index'))->with('success', 'Deleted!');
+    //     }
+
+    //     return redirect(route('products.index'))->with('error', 'Sorry, unable to delete this!');
+    // }
+    public function destroy(string $id): RedirectResponse
+    {
+        // Cari "Dryresin" berdasarkan ID
+        $dryresin = Dryresin::findOrFail($id);
+
+        // Cari entri "Standardize" yang memiliki "dryresin_id" yang sesuai
+        $standardize = Standardize::where('dryresin_id', $id)->first();
+
+        // Hapus "Standardize" terlebih dahulu jika ditemukan
+        if ($standardize) {
+            $standardize->delete();
+        }
+
+        // Kemudian hapus "Dryresin" itu sendiri
+        if ($dryresin->delete()) {
             return redirect(route('products.index'))->with('success', 'Deleted!');
         }
 

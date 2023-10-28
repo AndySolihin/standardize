@@ -22,12 +22,11 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sku' => ['required', 'unique:products', 'max:100'],
-            'name' => ['required', 'max:100'],
-            'price' => ['required', 'numeric', 'min:1'],
-            'stock' => ['required', 'numeric', 'min:0'],
-			'brand_id' => ['required'],
-            'category_ids' => ['required', 'array', 'min:2']
+            'nomor_so' => ['required', 'unique:Dryresins', 'max:100'],
+            'kategori' => ['required', 'max:100'],
+            'total_hours' => ['required', 'numeric', 'min:1'],
+			// 'proses_id' => ['requared'],
+            // 'category_ids' => ['required', 'array', 'min:2']
         ];
     }
 }

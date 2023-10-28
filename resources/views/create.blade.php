@@ -38,25 +38,25 @@
                       <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
                     <div class="mb-3">
-                      <label class="form-label">SKU</label>
-                      <input type="text" class="form-control" name="sku" value="{{ old('sku') }}" placeholder="#SKU">
+                      <label class="form-label">NOMOR SO</label>
+                      <input type="text" class="form-control" name="nomor_so" value="{{ old('nomor_so') }}" placeholder="masukan nomor so">
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control" name="name" value="{{ old('name') }}"  placeholder="Name">
+                      <label class="form-label">kategori</label>
+                      <input type="text" class="form-control" name="kategori" value="{{ old('kategori') }}"  placeholder="Name">
                     </div>
-                    <div class="mb-3"> 
-                      <label class="form-label">Brand</label>
-                      <select name="brand_id" class="form-control">
-                        <option value="">-- Brand --</option>
-                        @foreach ($brands as $brandID => $name)
-                          <option value="{{ $brandID }}" @selected(old('brand_id') == $brandID)>
+                    {{-- <div class="mb-3">
+                      <label class="form-label">Proses</label>
+                      <select name="proses_id" class="form-control">
+                        <option value="">-- Proses --</option>
+                        @foreach ($proses as $prosesID => $name)
+                          <option value="{{ $prosesID }}" @selected(old('proses_id') == $prosesID)>
                             {{ $name }}
                           </option>
                         @endforeach
                       </select>
-                    </div>
-                    <div class="mb-3">
+                    </div> --}}
+                    {{-- <div class="mb-3">
                       <label class="form-label">Category</label>
                       @foreach ($categories as $categoryID => $categoryName)
                         <div class="form-check">
@@ -66,14 +66,10 @@
                           </label>
                         </div>
                       @endforeach
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
-                      <label class="form-label">Price</label>
-                      <input type="text" class="form-control" name="price" value="{{ old('price') }}"  placeholder="Price">
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Stock</label>
-                      <input type="text" class="form-control" name="stock" value="{{ old('stock') }}"  placeholder="Stock">
+                      <label class="form-label">Total Hours</label>
+                      <input type="text" class="form-control" name="total_hours" value="{{ old('total_hours') }}"  placeholder="Price">
                     </div>
                 </div>
                 <div class="card-footer">

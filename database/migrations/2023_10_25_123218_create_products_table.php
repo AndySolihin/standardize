@@ -11,21 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('dryresins', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('brand_id')->nullable()->constrained();
-            $table->string('sku')->index();;
-            $table->string('name');
-            $table->decimal('price', 15, 2)->nullable();
-            $table->integer('stock')->default(0);
+            // $table->foreignId('brand_id')->nullable()->constrained();
+            $table->string('nomor_so')->index();;
+            $table->string('kategori')->index();
+            $table->decimal('total_hours', 15, 2)->nullable();
+            // $table->foreignId('proses_id')->constrained();
             $table->timestamps();
-        });
-
-
-        Schema::create('category_product', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('product_id')->constrained();
         });
     }
 
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('dryresins');
     }
 };
