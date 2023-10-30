@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('typeproses', function (Blueprint $table) {
+        Schema::create('man_hours', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
-            $table->string('name');
+            $table->integer('durasi_manhour')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('typeproses');
+        Schema::dropIfExists('man_hours');
     }
 };

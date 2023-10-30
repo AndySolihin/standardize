@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Standardize extends Model
 {
     protected $fillable = [
-        'dryresin_id',
+        'kategori_id',
     ];
-    public function dryresin(): BelongsTo
+    public function kategori(): BelongsTo
     {
-        return $this->belongsTo(Dryresin::class);
+        return $this->belongsTo(Kategori::class);
     }
 }
+

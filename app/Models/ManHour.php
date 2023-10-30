@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Proses extends Model
+class ManHour extends Model
 {
     use HasFactory;
 
@@ -16,8 +15,8 @@ class Proses extends Model
         // 'name',
     ];
 
-    public function workcenter(): BelongsTo
+    public function typeproses(): BelongsTo
     {
-        return $this->belongsTo(WorkCenter::class);
+        return $this->belongsTo(TypeProses::class);
     }
 }

@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dryresins', function (Blueprint $table) {
+        Schema::create('kapasitas', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('brand_id')->nullable()->constrained();
-            $table->string('nomor_so')->index();;
-            $table->string('kategori')->index();
-            $table->decimal('total_hours', 15, 2)->nullable();
-            // $table->foreignId('proses_id')->constrained();
+            $table->string('kapasitas');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dryresins');
+        Schema::dropIfExists('kapasitas');
     }
 };

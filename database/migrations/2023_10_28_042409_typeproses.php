@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('standardizes', function (Blueprint $table) {
+        Schema::create('typeproses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dryresin_id')->constrained();
+            $table->string('nama_typeproses')->index();
+            $table->foreignId('man_hour_id')->constrained();
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('standardizes');
+        Schema::dropIfExists('typeproses');
     }
 };

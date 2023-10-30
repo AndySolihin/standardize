@@ -10,8 +10,14 @@ use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Categories;
+use App\Models\Kapasitas;
+use App\Models\Kategori;
+use App\Models\ManHour;
 use App\Models\Proses;
 use App\Models\Standardize;
+use App\Models\work;
+use App\Models\WorkCenter;
 
 class ProductController extends Controller
 {
@@ -30,12 +36,17 @@ class ProductController extends Controller
      */
     public function create(): Response
     {
-        // $proses = Proses::orderBy('id')->get()->pluck( 'id');
-        // $proses = Proses::orderBy('nama', 'asc')->get()->pluck('nama', 'id');
-        // $categories = TypeProses::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        // $proses = Dryresin::orderBy('id')->get()->pluck( 'id');
+        // $work = WorkCenter::orderBy('id')->get()->pluck('id');
+        // $kapasitas = Kapasitas::orderBy('id')->get()->pluck('id');
 
-        return response(view('create', [ ]));
+        // return response(view('create', [  'kapasitas' => $kapasitas]));
         // return response(view('create', ['proses' => $brands, 'categories' => $categories]));
+        $work_centers = WorkCenter::orderBy('id')->get();
+        $proses = Proses::orderBy('id')->get();
+        $manhour = ManHour::orderBy('id')->get();
+
+        return response(view('create', ['work_centers' => $work_centers,'proses' => $proses , 'manhour'=>$manhour ]));
     }
 
     /**
