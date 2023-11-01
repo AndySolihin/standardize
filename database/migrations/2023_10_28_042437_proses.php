@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('proses', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_proses')->index();
-            $table->foreignId('typeproses_id')->constrained();
-            $table->integer('total_hour')->index();
+            $table->string('nama_proses');
             $table->timestamps();
         });
     }

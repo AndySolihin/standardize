@@ -9,15 +9,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Proses extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
-    protected $fillable = [
-        // 'slug',
-        // 'name',
-    ];
+    // protected $fillable = [
+    //     // 'slug',
+    //     // 'name',
+    // ];
 
-    public function workcenter(): BelongsTo
-    {
-        return $this->belongsTo(WorkCenter::class);
-    }
+    // public function workcenter(): BelongsTo
+    // {
+    //     return $this->belongsTo(WorkCenter::class);
+    // }
 }

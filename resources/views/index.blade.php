@@ -45,111 +45,111 @@
                                     @forelse ($products as $product)
                                         <tr>
                                             <td>
-                                                @if ($product->kategori->dryresin)
-                                                    {{ $product->kategori->dryresin->nama_product }}
-                                                @elseif ($product->kategori->repair)
-                                                    {{ $product->kategori->repair->nama_product }}
-                                                @elseif ($product->kategori->ct)
-                                                    {{ $product->kategori->ct->nama_product }}
-                                                @elseif ($product->kategori->custom)
-                                                    {{ $product->kategori->custom->nama_product }}
-                                                @elseif ($product->kategori->standard)
-                                                    {{ $product->kategori->standard->nama_product }}
-                                                @elseif ($product->kategori->vt)
-                                                    {{ $product->kategori->vt->nama_product }}
-                                                @elseif ($product->kategori->drynonresin)
-                                                    {{ $product->kategori->drynonresin->nama_product }}
+                                                @if ($product->dryresin)
+                                                    {{ $product->dryresin->nama_product }}
+                                                @elseif ($product->repair)
+                                                    {{ $product->repair->nama_product }}
+                                                @elseif ($product->ct)
+                                                    {{ $product->ct->nama_product }}
+                                                @elseif ($product->custom)
+                                                    {{ $product->custom->nama_product }}
+                                                @elseif ($product->standard)
+                                                    {{ $product->standard->nama_product }}
+                                                @elseif ($product->vt)
+                                                    {{ $product->vt->nama_product }}
+                                                @elseif ($product->drynonresin)
+                                                    {{ $product->drynonresin->nama_product }}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($product->kategori->dryresin)
-                                                    {{ $product->kategori->dryresin->created_at }}
-                                                @elseif ($product->kategori->repair)
-                                                    {{ $product->kategori->repair->created_at }}
-                                                @elseif ($product->kategori->ct)
-                                                    {{ $product->kategori->ct->created_at }}
-                                                @elseif ($product->kategori->vt)
-                                                    {{ $product->kategori->vt->created_at }}
-                                                @elseif ($product->kategori->drynonresin)
-                                                    {{ $product->kategori->drynonresin->created_at }}
-                                                @elseif ($product->kategori->standard)
-                                                    {{ $product->kategori->standard->created_at }}
-                                                @elseif ($product->kategori->custom)
-                                                    {{ $product->kategori->custom->created_at }}
+                                                @if ($product->dryresin)
+                                                    {{ $product->created_at}}
+                                                @elseif ($product->repair)
+                                                    {{ $product->created_at}}
+                                                @elseif ($product->ct)
+                                                    {{ $product->created_at}}
+                                                @elseif ($product->vt)
+                                                    {{ $product->created_at}}
+                                                @elseif ($product->drynonresin)
+                                                    {{ $product->created_at}}
+                                                @elseif ($product->standard)
+                                                    {{ $product->created_at}}
+                                                @elseif ($product->custom)
+                                                    {{ $product->created_at}}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($product->kategori->dryresin)
-                                                    {{ $product->kategori->dryresin->nomor_so }}
-                                                @elseif ($product->kategori->repair)
-                                                    {{ $product->kategori->repair->nomor_so }}
-                                                @elseif ($product->kategori->ct)
-                                                    {{ $product->kategori->ct->nomor_so }}
-                                                @elseif ($product->kategori->vt)
-                                                    {{ $product->kategori->vt->nomor_so }}
-                                                @elseif ($product->kategori->drynonresin)
-                                                    {{ $product->kategori->drynonresin->nomor_so }}
-                                                @elseif ($product->kategori->standard)
-                                                    {{ $product->kategori->standard->nomor_so }}
-                                                @elseif ($product->kategori->custom)
-                                                    {{ $product->kategori->custom->nomor_so }}
+                                                @if ($product->dryresin)
+                                                    {{ $product->dryresin->nomor_so }}
+                                                @elseif ($product->repair)
+                                                    {{ $product->repair->nomor_so }}
+                                                @elseif ($product->ct)
+                                                    {{ $product->ct->nomor_so }}
+                                                @elseif ($product->vt)
+                                                    {{ $product->vt->nomor_so }}
+                                                @elseif ($product->drynonresin)
+                                                    {{ $product->drynonresin->nomor_so }}
+                                                @elseif ($product->standard)
+                                                    {{ $product->standard->nomor_so }}
+                                                @elseif ($product->custom)
+                                                    {{ $product->custom->nomor_so }}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($product->kategori->dryresin)
-                                                    {{ $product->kategori->dryresin->total_hour }}
-                                                @elseif ($product->kategori->repair)
-                                                    {{ $product->kategori->repair->total_hour }}
-                                                @elseif ($product->kategori->ct)
-                                                    {{ $product->kategori->ct->total_hour }}
-                                                @elseif ($product->kategori->vt)
-                                                    {{ $product->kategori->vt->total_hour }}
-                                                @elseif ($product->kategori->drynonresin)
-                                                    {{ $product->kategori->drynonresin->total_hour }}
-                                                @elseif ($product->kategori->standard)
-                                                    {{ $product->kategori->standard->total_hour }}
-                                                @elseif ($product->kategori->custom)
-                                                    {{ $product->kategori->custom->total_hour }}
+                                                @if ($product->dryresin)
+                                                    {{ $product->dryresin->total_hour }}
+                                                @elseif ($product->repair)
+                                                    {{ $product->repair->total_hour }}
+                                                @elseif ($product->ct)
+                                                    {{ $product->ct->total_hour }}
+                                                @elseif ($product->vt)
+                                                    {{ $product->vt->total_hour }}
+                                                @elseif ($product->drynonresin)
+                                                    {{ $product->drynonresin->total_hour }}
+                                                @elseif ($product->standard)
+                                                    {{ $product->standard->total_hour }}
+                                                @elseif ($product->custom)
+                                                    {{ $product->custom->total_hour }}
                                                 @endif
                                             </td>
-                                            <td>
-                                                @if ($product->kategori->dryresin)
-                                                    {{ $product->kategori->dryresin->kapasitas->kapasitas }}
-                                                @elseif ($product->kategori->repair)
-                                                    {{ $product->kategori->repair->kapasitas->kapasitas }}
-                                                @elseif ($product->kategori->vt)
-                                                    {{ $product->kategori->vt->kapasitas->kapasitas }}
-                                                @elseif ($product->kategori->drynonresin)
-                                                    {{ $product->kategori->drynonresin->kapasitas->kapasitas }}
-                                                @elseif ($product->kategori->standard)
-                                                    {{ $product->kategori->standard->kapasitas->kapasitas }}
-                                                @elseif ($product->kategori->custom)
-                                                    {{ $product->kategori->custom->kapasitas->kapasitas }}
-                                                @elseif ($product->kategori->ct)
-                                                    {{ $product->kategori->ct->kapasitas->kapasitas }}
+                                            {{-- <td>
+                                                @if ($product->dryresin)
+                                                    {{ $product->dryresin->manhours->kapasitas->id}}
+                                                @elseif ($product->repair)
+                                                    {{ $product->repair->manhours->kapasitas->id}}
+                                                @elseif ($product->vt)
+                                                    {{ $product->vt->manhours->kapasitas->id}}
+                                                @elseif ($product->drynonresin)
+                                                    {{ $product->drynonresin->manhours->kapasitas->id}}
+                                                @elseif ($product->standard)
+                                                    {{ $product->standard->manhours->kapasitas->id}}
+                                                @elseif ($product->custom)
+                                                    {{ $product->custom->manhours->kapasitas->id}}
+                                                @elseif ($product->ct)
+                                                    {{ $product->ct->manhours->kapasitas->id}}
                                                 @endif
-                                            </td>
+                                            </td> --}}
                                             <td>
-                                                @if ($product->kategori->dryresin)
-                                                    {{ $product->kategori->dryresin->kd_manhour }}
-                                                @elseif ($product->kategori->repair)
-                                                    {{ $product->kategori->repair->kd_manhour }}
-                                                @elseif ($product->kategori->ct)
-                                                    {{ $product->kategori->ct->kd_manhour }}
-                                                @elseif ($product->kategori->vt)
-                                                    {{ $product->kategori->vt->kd_manhour }}
-                                                @elseif ($product->kategori->drynonresin)
-                                                    {{ $product->kategori->drynonresin->kd_manhour }}
-                                                @elseif ($product->kategori->standard)
-                                                    {{ $product->kategori->standard->kd_manhour }}
-                                                @elseif ($product->kategori->custom)
-                                                    {{ $product->kategori->custom->kd_manhour }}
+                                                @if ($product->dryresin)
+                                                    {{ $product->dryresin->kd_manhour }}
+                                                @elseif ($product->repair)
+                                                    {{ $product->repair->kd_manhour }}
+                                                @elseif ($product->ct)
+                                                    {{ $product->ct->kd_manhour }}
+                                                @elseif ($product->vt)
+                                                    {{ $product->vt->kd_manhour }}
+                                                @elseif ($product->drynonresin)
+                                                    {{ $product->drynonresin->kd_manhour }}
+                                                @elseif ($product->standard)
+                                                    {{ $product->standard->kd_manhour }}
+                                                @elseif ($product->custom)
+                                                    {{ $product->custom->kd_manhour }}
                                                 @endif
                                             </td>
 
                                             {{-- <td>{{ $product->categories->nama }}</td>
                         <td>{{ $product->categories->kapasitas->kapasitas }}</td> --}}
-                                            {{-- <td>{{ $product->dryresin->kategori }}</td>
+                                            {{-- <td>{{ $product->dryresin- }}</td>
                         <td>{{ $product->dryresin->nomor_so }}</td> --}}
                                             {{-- <td>{{ ($product->brand != null) ? $product->brand->name : '' }}</td> --}}
                                             {{-- <td>{{ implode(', ', $product->categories->pluck('name')->toArray()) }}</td> --}}

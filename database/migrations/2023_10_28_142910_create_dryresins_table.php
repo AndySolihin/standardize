@@ -14,14 +14,10 @@ return new class extends Migration
         Schema::create('dryresins', function (Blueprint $table) {
             $table->id();
             $table->string('kd_manhour', 14)->unique();
-            $table->string('nama_product')->default('Dry Cast Resint')->index();
-            $table->foreignId('kapasitas_id')->constrained();
-            $table->foreignId('work_center_id')->constrained();
-            $table->foreignId('proses_id')->constrained();
-            $table->foreignId('typeproses_id')->constrained();
-            $table->foreignId('man_hour_id')->constrained();
-            $table->string('nomor_so')->index();
-            $table->integer('total_hour')->index();
+            $table->string('nama_product')->default('Dry Cast Resin')->index();
+            $table->string('nomor_so');
+            $table->integer('total_hour');
+            $table->foreignId('manhour_id')->constrained('manhours')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -34,3 +30,5 @@ return new class extends Migration
         Schema::dropIfExists('dryresins');
     }
 };
+
+

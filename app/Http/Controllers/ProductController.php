@@ -10,9 +10,6 @@ use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Categories;
-use App\Models\Kapasitas;
-use App\Models\Kategori;
 use App\Models\ManHour;
 use App\Models\Proses;
 use App\Models\Standardize;
@@ -27,6 +24,7 @@ class ProductController extends Controller
     public function index(): Response
     {
         $products = Standardize::all();
+        // $products = Standardize::with(['Dryresin.ManHour.Kapasitas'])->find();
 
         return response(view('index', ['products' => $products]));
     }

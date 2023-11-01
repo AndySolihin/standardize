@@ -12,33 +12,38 @@ class Dryresin extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        // // 'brand_id',
-        // 'nomor_so',
-        // 'kategori',
-        // 'total_hours',
-    ];
+    public function manhour(): HasMany
+    {
+        return $this->hasMany(ManHour::class);
+    }
 
-    public function workcenter(): HasMany
-    {
-        return $this->hasMany(WorkCenter::class);
-    }
-    public function proses(): BelongsTo
-    {
-        return $this->belongsTo(Proses::class);
-    }
-    public function typeproses(): BelongsTo
-    {
-        return $this->belongsTo(TypeProses::class);
-    }
-    public function manhour(): BelongsTo
-    {
-        return $this->belongsTo(ManHour::class);
-    }
-    public function kapasitas(): BelongsTo
-    {
-        return $this->belongsTo(Kapasitas::class);
-    }
+    // protected $fillable = [
+    //     // // 'brand_id',
+    //     // 'nomor_so',
+    //     // 'kategori',
+    //     // 'total_hours',
+    // ];
+
+    // public function workcenter(): HasMany
+    // {
+    //     return $this->hasMany(WorkCenter::class);
+    // }
+    // public function proses(): BelongsTo
+    // {
+    //     return $this->belongsTo(Proses::class);
+    // }
+    // public function typeproses(): BelongsTo
+    // {
+    //     return $this->belongsTo(TypeProses::class);
+    // }
+    // public function manhour(): BelongsTo
+    // {
+    //     return $this->belongsTo(ManHour::class);
+    // }
+    // public function kapasitas(): BelongsTo
+    // {
+    //     return $this->belongsTo(Kapasitas::class);
+    // }
 
 
 
@@ -54,15 +59,15 @@ class Dryresin extends Model
     // {
     //     return $this->belongsTo(Proses::class);
     // }
-    public static function boot()
-    {
-        parent::boot();
+    // public static function boot()
+    // {
+    //     parent::boot();
 
-        static::created(function ($dryresin) {
-            Kategori::create([
-                'dryresin_id' => $dryresin->id,
-            ]);
-        });
-    }
+    //     static::created(function ($dryresin) {
+    //         Kategori::create([
+    //             'dryresin_id' => $dryresin->id,
+    //         ]);
+    //     });
+    // }
 
 }

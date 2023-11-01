@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('work_centers', function (Blueprint $table) {
             $table->id();
             $table->string('nama_work_center');
-            $table->foreignId('proses_id')->constrained();
-            $table->integer('total_hour')->index();
             $table->timestamps();
         });
     }

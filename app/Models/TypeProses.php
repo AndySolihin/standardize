@@ -9,15 +9,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class TypeProses extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
-    protected $fillable = [
-        // 'slug',
-        // 'name',
-    ];
+    // protected $fillable = [
+    //     // 'slug',
+    //     // 'name',
+    // ];
 
-    public function proses(): BelongsTo
-    {
-        return $this->belongsTo(Proses::class);
-    }
+    // public function proses(): BelongsTo
+    // {
+    //     return $this->belongsTo(Proses::class);
+    // }
 }

@@ -11,35 +11,40 @@ class Custom extends Model
 {
     use HasFactory;
 
-    public function workcenter(): HasMany
+    public function manhour(): HasMany
     {
-        return $this->hasMany(WorkCenter::class);
-    }
-    public function proses(): BelongsTo
-    {
-        return $this->belongsTo(Proses::class);
-    }
-    public function typeproses(): BelongsTo
-    {
-        return $this->belongsTo(TypeProses::class);
-    }
-    public function manhour(): BelongsTo
-    {
-        return $this->belongsTo(ManHour::class);
-    }
-    public function kapasitas(): BelongsTo
-    {
-        return $this->belongsTo(Kapasitas::class);
+        return $this->hasMany(ManHour::class);
     }
 
-    public static function boot()
-    {
-        parent::boot();
+//     public function workcenter(): HasMany
+//     {
+//         return $this->hasMany(WorkCenter::class);
+//     }
+//     public function proses(): BelongsTo
+//     {
+//         return $this->belongsTo(Proses::class);
+//     }
+//     public function typeproses(): BelongsTo
+//     {
+//         return $this->belongsTo(TypeProses::class);
+//     }
+//     public function manhour(): BelongsTo
+//     {
+//         return $this->belongsTo(ManHour::class);
+//     }
+//     public function kapasitas(): BelongsTo
+//     {
+//         return $this->belongsTo(Kapasitas::class);
+//     }
 
-        static::created(function ($custom) {
-            Kategori::create([
-                'custom_id' => $custom->id,
-            ]);
-        });
-    }
+//     public static function boot()
+//     {
+//         parent::boot();
+
+//         static::created(function ($custom) {
+//             Kategori::create([
+//                 'custom_id' => $custom->id,
+//             ]);
+//         });
+//     }
 }

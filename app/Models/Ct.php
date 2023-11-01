@@ -11,37 +11,37 @@ class Ct extends Model
 {
     use HasFactory;
 
-    public function workcenter(): HasMany
+    public function manhour(): HasMany
     {
-        return $this->hasMany(WorkCenter::class);
+        return $this->hasMany(ManHour::class);
     }
-    public function proses(): BelongsTo
-    {
-        return $this->belongsTo(Proses::class);
-    }
-    public function typeproses(): BelongsTo
-    {
-        return $this->belongsTo(TypeProses::class);
-    }
-    public function manhour(): BelongsTo
-    {
-        return $this->belongsTo(ManHour::class);
-    }
-    public function kapasitas(): BelongsTo
-    {
-        return $this->belongsTo(Kapasitas::class);
-    }
+    // public function proses(): BelongsTo
+    // {
+    //     return $this->belongsTo(Proses::class);
+    // }
+    // public function typeproses(): BelongsTo
+    // {
+    //     return $this->belongsTo(TypeProses::class);
+    // }
+    // public function manhour(): BelongsTo
+    // {
+    //     return $this->belongsTo(ManHour::class);
+    // }
+    // public function kapasitas(): BelongsTo
+    // {
+    //     return $this->belongsTo(Kapasitas::class);
+    // }
 
-    public static function boot()
-    {
-        parent::boot();
+    // public static function boot()
+    // {
+    //     parent::boot();
 
-        static::created(function ($ct) {
-            Kategori::create([
-                'ct_id' => $ct->id,
-            ]);
-        });
-    }
+    //     static::created(function ($ct) {
+    //         Kategori::create([
+    //             'ct_id' => $ct->id,
+    //         ]);
+    //     });
+    // }
 
 
 }

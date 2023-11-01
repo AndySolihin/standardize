@@ -13,13 +13,7 @@ return new class extends Migration
     {
         Schema::create('kategoris', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dryresin_id')->nullable()->constrained();
-            $table->foreignId('drynonresin_id')->nullable()->constrained();
-            $table->foreignId('standard_id')->nullable()->constrained();
-            $table->foreignId('custom_id')->nullable()->constrained();
-            $table->foreignId('ct_id')->nullable()->constrained();
-            $table->foreignId('vt_id')->nullable()->constrained();
-            $table->foreignId('repair_id')->nullable()->constrained();
+            $table->string('nama_kategori');
             $table->timestamps();
         });
     }
@@ -32,5 +26,3 @@ return new class extends Migration
         Schema::dropIfExists('kategoris');
     }
 };
-
-

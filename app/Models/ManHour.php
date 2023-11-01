@@ -10,13 +10,29 @@ class ManHour extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        // 'slug',
-        // 'name',
-    ];
+    // protected $fillable = [
+    //     // 'slug',
+    //     // 'name',
+    // ];
 
-    public function typeproses(): BelongsTo
+    public function workcenter(): BelongsTo
+    {
+        return $this->belongsTo(WorkCenter::class);
+    }
+    public function kapasitas(): BelongsTo
+    {
+        return $this->belongsTo(Kapasitas::class);
+    }
+    public function tipeproses(): BelongsTo
     {
         return $this->belongsTo(TypeProses::class);
+    }
+    public function proses(): BelongsTo
+    {
+        return $this->belongsTo(Proses::class);
+    }
+    public function kategori(): BelongsTo
+    {
+        return $this->belongsTo(Kategori::class);
     }
 }
