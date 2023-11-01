@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class WorkCenter extends Model
 {
@@ -15,10 +16,10 @@ class WorkCenter extends Model
     //     // 'name',
     // ];
 
-    // public function dryresin(): BelongsTo
-    // {
-    //     return $this->belongsTo(Dryresin::class);
-    // }
+    public function manhour(): HasMany
+    {
+        return $this->hasMany(ManHour::class);
+    }
     // public function drynonresin(): BelongsTo
     // {
     //     return $this->belongsTo(Drynonresin::class);

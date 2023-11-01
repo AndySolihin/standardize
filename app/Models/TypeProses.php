@@ -16,8 +16,8 @@ class TypeProses extends Model
     //     // 'name',
     // ];
 
-    // public function proses(): BelongsTo
-    // {
-    //     return $this->belongsTo(Proses::class);
-    // }
+    public function manhour(): HasMany
+    {
+        return $this->hasMany(Manhour::class);
+    }
 }

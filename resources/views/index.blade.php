@@ -112,23 +112,23 @@
                                                     {{ $product->custom->total_hour }}
                                                 @endif
                                             </td>
-                                            {{-- <td>
+                                            <td>
                                                 @if ($product->dryresin)
-                                                    {{ $product->dryresin->manhours->kapasitas->id}}
+                                                    {{ $product->dryresin->manhour->kapasitas->id}}
                                                 @elseif ($product->repair)
-                                                    {{ $product->repair->manhours->kapasitas->id}}
+                                                    {{ $product->repair->manhour->kapasitas->id}}
                                                 @elseif ($product->vt)
-                                                    {{ $product->vt->manhours->kapasitas->id}}
+                                                    {{ $product->vt->manhour->kapasitas->id}}
                                                 @elseif ($product->drynonresin)
-                                                    {{ $product->drynonresin->manhours->kapasitas->id}}
+                                                    {{ $product->drynonresin->manhour->kapasitas->id}}
                                                 @elseif ($product->standard)
-                                                    {{ $product->standard->manhours->kapasitas->id}}
+                                                    {{ $product->standard->manhour->kapasitas->id}}
                                                 @elseif ($product->custom)
-                                                    {{ $product->custom->manhours->kapasitas->id}}
+                                                    {{ $product->custom->manhour->kapasitas->id}}
                                                 @elseif ($product->ct)
-                                                    {{ $product->ct->manhours->kapasitas->id}}
+                                                    {{ $product->ct->manhour->kapasitas->id}}
                                                 @endif
-                                            </td> --}}
+                                            </td>
                                             <td>
                                                 @if ($product->dryresin)
                                                     {{ $product->dryresin->kd_manhour }}

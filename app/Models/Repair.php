@@ -11,9 +11,9 @@ class Repair extends Model
 {
     use HasFactory;
 
-    public function manhour(): HasMany
+    public function manhour(): BelongsTo
     {
-        return $this->hasMany(ManHour::class);
+        return $this->belongsTo(Manhour::class);
     }
 
     // public function workcenter(): HasMany

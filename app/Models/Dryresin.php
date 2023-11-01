@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Dryresin extends Model
 {
     use HasFactory;
 
-    public function manhour(): HasMany
+    public function manhour(): BelongsTo
     {
-        return $this->hasMany(ManHour::class);
+        return $this->belongsTo(Manhour::class);
     }
+
+
 
     // protected $fillable = [
     //     // // 'brand_id',

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -10,6 +11,10 @@ class Kapasitas extends Model
 {
     use HasFactory;
 
+    public function manhour(): HasMany
+    {
+        return $this->hasMany(Manhour::class);
+    }
     // public function dryresin(): BelongsTo
     // {
     //     return $this->belongsTo(dryresin::class);

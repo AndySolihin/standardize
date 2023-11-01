@@ -16,8 +16,8 @@ class Proses extends Model
     //     // 'name',
     // ];
 
-    // public function workcenter(): BelongsTo
-    // {
-    //     return $this->belongsTo(WorkCenter::class);
-    // }
+    public function manhour(): HasMany
+    {
+        return $this->hasMany(Manhour::class);
+    }
 }
