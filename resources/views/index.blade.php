@@ -63,19 +63,19 @@
                                             </td>
                                             <td>
                                                 @if ($product->dryresin)
-                                                    {{ $product->created_at}}
+                                                    {{ $product->created_at->format('d-m-Y');}}
                                                 @elseif ($product->repair)
-                                                    {{ $product->created_at}}
+                                                    {{ $product->created_at->format('d-m-Y');}}
                                                 @elseif ($product->ct)
-                                                    {{ $product->created_at}}
+                                                    {{ $product->created_at->format('d-m-Y');}}
                                                 @elseif ($product->vt)
-                                                    {{ $product->created_at}}
+                                                    {{ $product->created_at->format('d-m-Y');}}
                                                 @elseif ($product->drynonresin)
-                                                    {{ $product->created_at}}
+                                                    {{ $product->created_at->format('d-m-Y');}}
                                                 @elseif ($product->standard)
-                                                    {{ $product->created_at}}
+                                                    {{ $product->created_at->format('d-m-Y');}}
                                                 @elseif ($product->custom)
-                                                    {{ $product->created_at}}
+                                                    {{ $product->created_at->format('d-m-Y');}}
                                                 @endif
                                             </td>
                                             <td>
@@ -114,19 +114,19 @@
                                             </td>
                                             <td>
                                                 @if ($product->dryresin)
-                                                    {{ $product->dryresin->manhour->kapasitas->id}}
+                                                    {{ $product->dryresin->ukuran_kapasitas}}
                                                 @elseif ($product->repair)
-                                                    {{ $product->repair->manhour->kapasitas->id}}
+                                                    {{ $product->repair->ukuran_kapasitas}}
                                                 @elseif ($product->vt)
-                                                    {{ $product->vt->manhour->kapasitas->id}}
+                                                    {{ $product->vt->ukuran_kapasitas}}
                                                 @elseif ($product->drynonresin)
-                                                    {{ $product->drynonresin->manhour->kapasitas->id}}
+                                                    {{ $product->drynonresin->ukuran_kapasitas}}
                                                 @elseif ($product->standard)
-                                                    {{ $product->standard->manhour->kapasitas->id}}
+                                                    {{ $product->standard->ukuran_kapasitas}}
                                                 @elseif ($product->custom)
-                                                    {{ $product->custom->manhour->kapasitas->id}}
+                                                    {{ $product->custom->ukuran_kapasitas}}
                                                 @elseif ($product->ct)
-                                                    {{ $product->ct->manhour->kapasitas->id}}
+                                                    {{ $product->ct->ukuran_kapasitas}}
                                                 @endif
                                             </td>
                                             <td>

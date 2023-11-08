@@ -24,15 +24,31 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'nomor_so' => [
-                'required',
+
                 'max:100',
                 Rule::unique('dryresins')->ignore($this->id),
             ],
-            'kategori' => ['required', 'max:100'],
-            'total_hours' => ['required', 'numeric', 'min:1'],
-			// 'proses_id' => ['required'],
-            // 'stock' => ['required', 'numeric', 'min:0'],
-            // 'category_ids' => ['required', 'array', 'min:2']
+            'ukuran_kapasitas' => ['required'],
+            'coil_lv' => ['required','string', 'max:100'],
+            'coil_hv' => ['required','string', 'max:100'],
+            'potong_leadwire' => ['required','string', 'max:100'],
+            'potong_isolasi' => ['required','string', 'max:100'],
+            'hv_moulding' => ['required','string', 'max:100'],
+            'hv_casting' => ['required','string', 'max:100'],
+            'hv_demoulding' => ['required','string', 'max:100'],
+            'lv_bobbin' => ['required','string', 'max:100'],
+            'lv_moulding' => ['required','string', 'max:100'],
+            'touch_up' => ['required','string', 'max:100'],
+            'type_susun_core' => ['required','string', 'max:100'],
+            'wiring' => ['required','string', 'max:100'],
+            'instal_housing' => ['required','string', 'max:100'],
+            'bongkar_housing' => ['required','string', 'max:100'],
+            'pembuatan_cu_link' => ['required','string', 'max:100'],
+            'others' => ['required','string', 'max:100'],
+            'accessories' => ['required','string', 'max:100'],
+            'potong_isolasi_fiber' => ['required','string', 'max:100'],
+            // 'routine_test' => ['required','string', 'max:100'],
+            'total_hour' => ['required','string', 'max:100'],
         ];
     }
 }

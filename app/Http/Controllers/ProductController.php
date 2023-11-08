@@ -13,6 +13,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\ManHour;
 use App\Models\Proses;
 use App\Models\Standardize;
+use App\Models\Tipeproses;
 use App\Models\work;
 use App\Models\WorkCenter;
 
@@ -40,11 +41,10 @@ class ProductController extends Controller
 
         // return response(view('create', [  'kapasitas' => $kapasitas]));
         // return response(view('create', ['proses' => $brands, 'categories' => $categories]));
-        $work_centers = WorkCenter::orderBy('id')->get();
-        $proses = Proses::orderBy('id')->get();
+
         $manhour = ManHour::orderBy('id')->get();
 
-        return response(view('create', ['work_centers' => $work_centers,'proses' => $proses , 'manhour'=>$manhour ]));
+        return response(view('create', [ 'manhour'=>$manhour]));
     }
 
     /**
@@ -74,12 +74,12 @@ class ProductController extends Controller
     public function edit(string $id): Response
     {
         $product = Dryresin::findOrFail($id);
-        // $brands = Brand::orderBy('name', 'asc')->get()->pluck('name', 'id');
-        // $categories = TypeProses::orderBy('name', 'asc')->get()->pluck('name', 'id');
+        // $manhour = ManHour::orderBy('id')->get();
+        $manhour = ManHour::orderBy('id')->get();
 
 
-        return response(view('edit', ['product' => $product]));
-        // return response(view('edit', ['product' => $product, 'brands' => $brands, 'categories' => $categories]));
+
+        return response(view('edit', ['product' => $product , 'manhour'=> $manhour]));
     }
 
     /**

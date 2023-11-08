@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class TypeProses extends Model
+class Tipeproses extends Model
 {
     // use HasFactory;
 
@@ -16,8 +16,9 @@ class TypeProses extends Model
     //     // 'name',
     // ];
 
-    public function manhour(): HasMany
+    
+    public function manhour(): BelongsTo
     {
-        return $this->hasMany(Manhour::class);
+        return $this->belongsTo(Manhour::class);
     }
 }

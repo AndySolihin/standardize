@@ -26,7 +26,7 @@ class Manhour extends Model
     }
     public function tipeproses(): BelongsTo
     {
-        return $this->belongsTo(TypeProses::class);
+        return $this->belongsTo(Tipeproses::class);
     }
     public function proses(): BelongsTo
     {

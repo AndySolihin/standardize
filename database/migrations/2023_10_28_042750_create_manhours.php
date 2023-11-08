@@ -14,11 +14,16 @@ return new class extends Migration
         Schema::create('manhours', function (Blueprint $table) {
             $table->id();
             $table->integer("durasi_manhour");
-            $table->foreignId('kapasitas_id')->constrained('kapasitas')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('kategori_id')->constrained('kategoris')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('workcenters_id')->constrained('work_centers')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('proses_id')->constrained('proses')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('tipeproses_id')->constrained('tipeproses')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('workcenters_id')->constrained('work_centers');
+            $table->foreignId('proses_id')->constrained('proses');
+            $table->foreignId('tipeproses_id')->constrained('tipeproses');
+            $table->foreignId('kapasitas_id')->constrained('kapasitas');
+            $table->foreignId('kategori_id')->constrained('kategoris');
+            $table->string("nama_workcenter");
+            $table->string("nama_proses");
+            $table->string("nama_tipeproses");
+            $table->string("ukuran_kapasitas");
+            $table->string("nama_kategoriproduk");
 
 
 
