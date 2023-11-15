@@ -35,7 +35,7 @@ class Dryresin extends Model
         'bongkar_housing',
         'pembuatan_cu_link',
         'others',
-        'accessories',
+        'accesories',
         'potong_isolasi_fiber',
         'routine_test',
     ];
@@ -90,28 +90,25 @@ class Dryresin extends Model
     //     return $this->belongsTo(Proses::class);
     // }
     public static function boot()
-{
-    parent::boot();
+    {
+        parent::boot();
 
-    static::created(function ($dryresin) {
-        Standardize::create([
-            'dryresin_id' => $dryresin->id,
-        ]);
-    });
+        static::created(function ($dryresin) {
+            Standardize::create([
+                'dryresin_id' => $dryresin->id,
+            ]);
+        });
 
-    self::creating(function ($dryresin) {
-        // Mengambil nilai dari kolom 'nomor_so', 'nama_product', dan 'ukuran_kapasitas'
-        $nomorSo = $dryresin->nomor_so;
-        $namaProduct = $dryresin->kategori;
-        $ukuranKapasitas = $dryresin->ukuran_kapasitas;
+        self::creating(function ($dryresin) {
+            $nomorSo = $dryresin->nomor_so;
+            $namaProduct = $dryresin->kategori;
+            $ukuranKapasitas = $dryresin->ukuran_kapasitas;
 
-        $nomorSo = str_replace(['/', '-'], '', $nomorSo);
+            $nomorSo = str_replace(['/', '-'], '', $nomorSo);
 
-        // Menggabungkan nilai-nilai di atas untuk membuat kode 'kd_manhour'
-        $kdManhour = $namaProduct . '' .  $ukuranKapasitas . '' .$nomorSo;
+            $kdManhour = $namaProduct . '' .  $ukuranKapasitas . '' . $nomorSo;
 
-        // Menetapkan nilai 'kd_manhour' yang telah digabungkan
-        $dryresin->kd_manhour = $kdManhour;
-    });
-}
+            $dryresin->kd_manhour = $kdManhour;
+        });
+    }
 }

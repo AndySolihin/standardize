@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Kapasitas;
 use App\Models\ManHour;
 use App\Models\Proses;
 use App\Models\Standardize;
@@ -33,19 +34,27 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    // public function create(): Response
+    // {
+    //     $manhour = ManHour::orderBy('id')->get();
+
+    //     return response(view('create', [ 'manhour'=>$manhour]));
+    // }
     public function create(): Response
     {
-        // $proses = Dryresin::orderBy('id')->get()->pluck( 'id');
-        // $work = WorkCenter::orderBy('id')->get()->pluck('id');
-        // $kapasitas = Kapasitas::orderBy('id')->get()->pluck('id');
+        // $manhour = ManHour::orderBy('id')->get();
 
-        // return response(view('create', [  'kapasitas' => $kapasitas]));
-        // return response(view('create', ['proses' => $brands, 'categories' => $categories]));
-
-        $manhour = ManHour::orderBy('id')->get();
-
-        return response(view('create', [ 'manhour'=>$manhour]));
+        return response(view('create', ['manhour' => ManHour::all()]));
     }
+
+    public function createManhour($id)
+    {
+        $manhour = ManHour::where('ukuran_kapasitas', $id)->get();
+
+        return response()->json($manhour);
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -54,10 +63,18 @@ class ProductController extends Controller
     {
         $params = $request->validated();
 
+        $checkboxFields = ['potong_isolasi', 'lv_bobbin', 'lv_moulding', 'touch_up', 'others', 'accesories', 'potong_isolasi_fiber'];
+
+        foreach ($checkboxFields as $field) {
+            $checkbox = $request->input($field);
+            $params[$field] = implode(',', $checkbox);
+        }
+
         Dryresin::create($params);
 
         return redirect(route('products.index'))->with('success', 'Added!');
     }
+
 
 
     /**
@@ -79,7 +96,7 @@ class ProductController extends Controller
 
 
 
-        return response(view('edit', ['product' => $product , 'manhour'=> $manhour]));
+        return response(view('edit', ['product' => $product, 'manhour' => $manhour]));
     }
 
     /**
