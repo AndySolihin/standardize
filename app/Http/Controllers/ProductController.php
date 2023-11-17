@@ -34,15 +34,10 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    // public function create(): Response
-    // {
-    //     $manhour = ManHour::orderBy('id')->get();
 
-    //     return response(view('create', [ 'manhour'=>$manhour]));
-    // }
     public function create(): Response
     {
-        // $manhour = ManHour::orderBy('id')->get();
+
 
         return response(view('create', ['manhour' => ManHour::all()]));
     }
@@ -117,17 +112,6 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(string $id): RedirectResponse
-    // {
-    //     $product = Dryresin::findOrFail($id);
-    //     $product->categories()->detach();
-
-    //     if ($product->delete()) {
-    //         return redirect(route('products.index'))->with('success', 'Deleted!');
-    //     }
-
-    //     return redirect(route('products.index'))->with('error', 'Sorry, unable to delete this!');
-    // }
     public function destroy(string $id): RedirectResponse
     {
         // Cari "Dryresin" berdasarkan ID

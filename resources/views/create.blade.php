@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Kapasitas</label>
-                                    <select name="ukuran_kapasitas" id="ukuran_kapasitas" class="form-select input">
+                                    <select name="ukuran_kapasitas" id="ukuran_kapasitas" class=" form-select input">
                                         @php
                                             $selectedValue = old('ukuran_kapasitas');
                                             $manhourData = $manhour->where('kategori_id', '5')->unique('ukuran_kapasitas');
@@ -85,8 +85,7 @@
                                     <label class="form-label">Potong Isolasi</label>
                                     <select name="potong_isolasi[]" id="potong_isolasi" class="form-select input" multiple>
                                     </select>
-                                    {{-- <div name="potong_isolasi[]" id="potong_isolasi" class="checkbox-group input">
-                                </div> --}}
+                                  
                                     <p id="selectedInfo_potong_isolasi"></p>
                                 </div>
                                 <div id="totalJam">
@@ -114,24 +113,21 @@
                                     <label class="form-label">LV Bobbin</label>
                                     <select name="lv_bobbin[]" id="lv_bobbin" class="form-select input" multiple>
                                     </select>
-                                    {{-- <div name="lv_bobbin[]" id="lv_bobbin" class="checkbox-group input">
-                                </div> --}}
+
                                     <p id="selectedInfo_lv_bobbin"></p>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">LV Moulding</label>
                                     <select name="lv_moulding[]" id="lv_moulding" class="form-select input" multiple>
                                     </select>
-                                    {{-- <div name="lv_moulding[]" id="lv_moulding" class="checkbox-group input">
-                                </div> --}}
+
                                     <p id="selectedInfo_lv_moulding"></p>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Touch Up</label>
                                     <select name="touch_up[]" id="touch_up" class="form-select input" multiple>
                                     </select>
-                                    {{-- <div name="touch_up[]" id="touch_up" class="checkbox-group input">
-                                </div> --}}
+
                                     <p id="selectedInfo_touch_up"></p>
                                 </div>
                                 <div id="totalMouldCasting">
@@ -171,25 +167,21 @@
                                     <label class="form-label">Other</label>
                                     <select name="others[]" id="others" class="form-select input" multiple>
                                     </select>
-                                    {{-- <div name="others[]" id="others" class="checkbox-group input">
-                                </div> --}}
+
                                     <p id="selectedInfo_others"></p>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Accesories</label>
                                     <select name="accesories[]" id="accesories" class="form-select input" multiple>
                                     </select>
-                                    {{-- <div name="accesories[]" id="accesories" class="checkbox-group input">
-                                </div> --}}
+
                                     <p id="selectedInfo_accesories"></p>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Potong Isolasi FIber</label>
                                     <select name="potong_isolasi_fiber[]" id="potong_isolasi_fiber"
                                         class="form-select input" multiple> </select>
-                                    {{-- <div name="potong_isolasi_fiber[]" id="potong_isolasi_fiber"
-                                    class="checkbox-group input">
-                                </div> --}}
+
                                     <p id="selectedInfo_potong_isolasi_fiber"></p>
                                 </div>
                                 <div id="totalCoreCoilAssembly">
@@ -199,8 +191,7 @@
                                     <label class="form-label">Routine Test</label>
                                     <select name="routine_test[]" id="routine_test" class="form-select input" multiple>
                                     </select>
-                                    {{-- <div name="routine_test[]" id="routine_test" class="checkbox-group input">
-                                </div> --}}
+
                                     <p id="selectedInfo_routine_test"></p>
                                 </div>
                                 <div id="totalQCTest">

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kategori')->default('5');
             $table->string('nomor_so')->unique();
             $table->string('ukuran_kapasitas');
-            // $table->string('kapasitas_id');
+
             $table->integer('total_hour');
             $table->foreignId('manhour_id')->nullable()->constrained('manhours')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('coil_lv' )->nullable();

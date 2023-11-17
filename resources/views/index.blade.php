@@ -137,13 +137,7 @@
                                             @endif
                                         </td>
 
-                                        {{-- <td>{{ $product->categories->nama }}</td>
-                    <td>{{ $product->categories->kapasitas->kapasitas }}</td> --}}
-                                        {{-- <td>{{ $product->dryresin- }}</td>
-                    <td>{{ $product->dryresin->nomor_so }}</td> --}}
-                                        {{-- <td>{{ ($product->brand != null) ? $product->brand->name : '' }}</td> --}}
-                                        {{-- <td>{{ implode(', ', $product->categories->pluck('name')->toArray()) }}</td> --}}
-                                        {{-- <td>{{ $product->dryresin->total_hours }}</td> --}}
+                             
                                         <td>
                                             <a href="{{ route('products.edit', ['id' => $product->id]) }}"
                                                 class="btn btn-secondary btn-sm">edit</a>

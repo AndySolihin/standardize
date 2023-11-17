@@ -16,32 +16,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        // function fillCheckboxes(elementId, data, selectedProses, selectedWorkcenter) {
-        //     var filteredData = data.filter(function(item) {
-        //         return (
-        //             item.nama_kategoriproduk === 'DRY TYPE RESIN' &&
-        //             item.nama_workcenter === selectedWorkcenter &&
-        //             item.nama_proses === selectedProses
-        //         );
-        //     });
-        //     $(elementId).empty();
-        //     $.each(filteredData, function(key, data) {
-        //         var checkboxId = 'checkbox_' + key;
-        //         var namaProsesLowerCase = data.nama_proses.toLowerCase().replace(/\s+/g, '_');
-        //         $(elementId).append(
-        //             '<div class="form-check">' +
-        //             '<input class="form-check-input" type="checkbox" id="' + checkboxId +
-        //             '" name="' + namaProsesLowerCase + '[]" value="' + data.nama_tipeproses +
-        //             '" data-durasi="' + data.durasi_manhour + '" data-workcenter="' + data
-        //             .nama_workcenter + '">' +
-        //             '<label class="form-check-label" for="' + checkboxId + '">' +
-        //             data.nama_tipeproses +
-        //             '</label>' +
-        //             '</div>'
-        //         );
-        //     });
-        // }
-
         function fillSelect(elementId, data, selectedProses, selectedWorkcenter) {
             var filteredData = data.filter(function(item) {
                 return (
@@ -63,7 +37,6 @@
             });
         }
         $('#ukuran_kapasitas').on('change', function() {
-            // event.preventDefault();
             var ukuran_kapasitas = $(this).val();
             console.log(ukuran_kapasitas);
             if (ukuran_kapasitas) {
@@ -184,121 +157,6 @@
             }
         });
     });
-    // function showSelected(target) {
-    //     let selectElements = document.querySelectorAll('select');
-    //     let totalManhour = 0;
-    //     selectElements.forEach(function(select) {
-    //         let selectedOptions = select.selectedOptions;
-    //         if (selectedOptions) {
-    //             for (let i = 0; i < selectedOptions.length; i++) {
-    //                 let durasi = selectedOptions[i].getAttribute('data-durasi');
-    //                 totalManhour += parseFloat(durasi || 0);
-    //             }
-    //         }
-    //         let checkboxName = select.name + '[]';
-    //         let checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked');
-    //         if (checkboxes) {
-    //             checkboxes.forEach(function(checkbox) {
-    //                 let durasi = checkbox.getAttribute('data-durasi');
-    //                 totalManhour += parseFloat(durasi || 0);
-    //             });
-    //         }
-    //     });
-    //     let totalHourInput = document.getElementById('total_hour');
-    //     totalHourInput.value = totalManhour;
-    //     let select = document.getElementById(target);
-    //     console.log('Select Element:', select);
-    //     if (select) {
-    //         let selectedOptions = select.selectedOptions;
-    //         let totalDurasi = 0;
-    //         if (selectedOptions) {
-    //             for (let i = 0; i < selectedOptions.length; i++) {
-    //                 let selectedDurasi = selectedOptions[i].getAttribute('data-durasi');
-    //                 totalDurasi += parseFloat(selectedDurasi || 0);
-    //             }
-    //         }
-    //         let checkboxName = select.name + '[]';
-    //         let checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked');
-    //         if (checkboxes) {
-    //             checkboxes.forEach(function(checkbox) {
-    //                 let selectedDurasi = checkbox.getAttribute('data-durasi');
-    //                 console.log('Selected Durasi:', selectedDurasi);
-    //                 totalDurasi += parseFloat(selectedDurasi || 0);
-    //             });
-    //         }
-    //         let selectedInfo = document.getElementById("selectedInfo_" + target);
-    //         console.log('Selected Info Element:', selectedInfo);
-    //         if (selectedInfo) {
-    //             selectedInfo.textContent = " - Total Durasi Manhour: " + totalDurasi;
-    //         }
-    //         console.log(selectedInfo);
-    //         console.log(totalDurasi);
-    //     }
-    // }
-    // function showSelected(target) {
-    //     let selectElements = document.querySelectorAll('select');
-    //     let checkboxElements = document.querySelectorAll('input[type="checkbox"]');
-    //     let totalSelectManhour = 0;
-    //     let totalCheckboxManhour = 0;
-
-    //     // Pengambilan data dari elemen select
-    //     selectElements.forEach(function(select) {
-    //         let selectedOption = select.options[select.selectedIndex];
-    //         let durasi = selectedOption.getAttribute('data-durasi');
-    //         totalSelectManhour += parseFloat(durasi || 0);
-    //     });
-
-    //     // Pengambilan data dari elemen checkbox
-    //     checkboxElements.forEach(function(checkbox) {
-    //         if (checkbox.checked) {
-    //             let durasi = checkbox.getAttribute('data-durasi');
-    //             totalCheckboxManhour += parseFloat(durasi || 0);
-    //         }
-    //     });
-
-
-    //     let selectedInfo = document.getElementById("selectedInfo_" + target);
-    //     selectedInfo.textContent = " - Total Durasi Manhour: " + totalCheckboxManhour;
-    //     let totalManhour = totalSelectManhour + totalCheckboxManhour;
-
-    //     let totalHourInput = document.getElementById('total_hour');
-    //     totalHourInput.value = totalManhour;
-    // }
-    // function showSelected(target) {
-    // let select = document.getElementById(target);
-    // let selectedOption = select.options[select.selectedIndex];
-    // let selectedDurasi = selectedOption.getAttribute('data-durasi');
-    // let selectedInfoSelect = document.getElementById("selectedInfoSelect_" + target);
-    // selectedInfoSelect.textContent = " - Durasi Manhour: " + selectedDurasi;
-    // let selectElements = document.querySelectorAll('select');
-    // let totalManhour = 0;
-    // selectElements.forEach(function(select) {
-    //     let selectedOption = select.options[select.selectedIndex];
-    //     let durasi = selectedOption.getAttribute('data-durasi');
-    //     // console.log('Durasi', durasi);
-    //     totalManhour += parseFloat(durasi || 0); // Mengonversi ke angka
-    // });
-    // // console.log('Total Manhour:', totalManhour);
-    // let totalHourInput = document.getElementById('total_hour');
-    // totalHourInput.value = totalManhour;
-
-    // let checkboxElements = document.querySelectorAll('input[type="checkbox"]');
-    // let totalManhour = 0;
-
-
-    // checkboxElements.forEach(function(checkbox) {
-    //     if (checkbox.checked) {
-    //         let durasi = parseFloat(checkbox.getAttribute('data-durasi') || 0);
-
-    //         totalManhour += durasi;
-    //         let selectedInfoCheckbox = document.getElementById("selectedInfoCheckbox_" + target);
-    //         selectedInfoCheckbox.textContent = " - Durasi Manhour: " + durasi;
-    //     }
-    // });
-
-    // let totalHourInput = document.getElementById('total_hour');
-    // totalHourInput.value = totalManhour;
-    // }
 
     function showSelected(target) {
         let selectElements = document.querySelectorAll('select');
@@ -326,43 +184,7 @@
         console.log(selectedInfo);
         console.log(totalDurasi);
     }
-    // function showSelected(target) {
-    //     let selectElements = document.querySelectorAll('select');
-    //     let checkboxElements = document.querySelectorAll('input[type="checkbox"]');
-    //     let totalSelectManhour = 0;
-    //     let totalCheckboxManhour = 0;
-
-    //     // Pengambilan data dari elemen select
-    //     selectElements.forEach(function(select) {
-    //         let selectedOptions = select.selectedOptions;
-    //         for (let i = 0; i < selectedOptions.length; i++) {
-    //             let durasi = selectedOptions[i].getAttribute('data-durasi');
-    //             totalSelectManhour += parseFloat(durasi || 0);
-    //         }
-    //     });
-
-    //     // Pengambilan data dari elemen checkbox
-    //     checkboxElements.forEach(function(checkbox) {
-    //         if (checkbox.checked) {
-    //             let durasi = checkbox.getAttribute('data-durasi');
-    //             totalCheckboxManhour += parseFloat(durasi || 0);
-    //         }
-    //     });
-
-    //     let totalManhour = totalSelectManhour + totalCheckboxManhour;
-
-    //     // Menampilkan informasi dalam elemen "selectedInfo"
-    //     let selectedInfo = document.getElementById("selectedInfo_" + target);
-    //     selectedInfo.textContent = " - Total Durasi Manhour: " + totalManhour;
-    //     let selectedInfo = document.getElementById("selectedInfo_" + target);
-    //     selectedInfo.textContent = " - Total Durasi Manhour: " + totalManhour;
-
-    //     // Menampilkan total durasi pada input "total_hour"
-    //     let totalHourInput = document.getElementById('total_hour');
-    //     totalHourInput.value = totalManhour;
-    // }
-
-
+  
     function displayTotalJamCoilMaking() {
         let selectElements = document.querySelectorAll('select');
         let totalJam = 0;

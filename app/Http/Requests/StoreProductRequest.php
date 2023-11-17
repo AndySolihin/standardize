@@ -39,7 +39,7 @@ class StoreProductRequest extends FormRequest
             'others' => [],
             'accesories' => [],
             'potong_isolasi_fiber' => [],
-            // 'routine_test' => ['required','string', 'max:100'],
+            // 'routine_test' => [],
             'total_hour' => ['required','string', 'max:100'],
         ];
     }
